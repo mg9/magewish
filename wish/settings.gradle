@@ -1,0 +1,6 @@
+rootProject.name = 'wish'
+
+include 'polly-wish'
+include 'eurekaservice'
+include 'configservice'
+

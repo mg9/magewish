@@ -1,0 +1,12 @@
+ spring:
+  application:  
+    name: configservice
+  profiles:
+    active: native
+  cloud:
+     config:
+       server:
+           native:
+              searchLocations: classpath:configs/
+    
+    

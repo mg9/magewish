@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: polly-wish
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      enabled: true

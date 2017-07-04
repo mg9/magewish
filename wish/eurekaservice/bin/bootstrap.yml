@@ -1,0 +1,8 @@
+#Default port is 8761
+ 
+spring:
+  application:
+    name: eurekaservice
+ #cloud:
+ #  config:
+ #    uri: ${CONFIG_SERVER_URL:http://localhost:8888}
