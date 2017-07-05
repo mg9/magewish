@@ -11,12 +11,13 @@ buildscript {
 }
 
 plugins {
-    id "com.moowork.node" version "1.1.1"
+  id "com.moowork.node" version "1.2.0"  
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+
 
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -30,19 +31,21 @@ ext {
 	springCloudVersion = 'Dalston.SR1'
 }
 
+
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
 	compile('org.springframework.cloud:spring-cloud-starter')
-	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.cloud:spring-cloud-starter-eureka')
+	
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	
 	
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	
-	runtime('com.h2database:h2')
+	compile('com.h2database:h2')
 	runtime('org.springframework.boot:spring-boot-devtools')
-	compileOnly('org.projectlombok:lombok')
 	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.cloud:spring-cloud-starter-eureka-server')
@@ -50,20 +53,17 @@ dependencies {
 }
 
 node {
-    // Set the work directory for unpacking node
-    workDir = file("${project.buildDir}/nodejs")
-
-    // Set the work directory for NPM
-    npmWorkDir = file("${project.buildDir}/npm")
-
-    // Set the work directory where node_modules should be located
-    nodeModulesDir = file("${project.projectDir}")
+    version = '6.11.0'
+    download = true
 }
+
+
 
 task webpack(type: NodeTask, dependsOn: 'npmInstall') {
     script = project.file('node_modules/.bin/webpack')
     args = ['--display-error-details']
 }
+
 
 processResources.dependsOn 'webpack'
 

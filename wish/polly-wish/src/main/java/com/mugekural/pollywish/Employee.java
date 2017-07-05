@@ -15,20 +15,21 @@
  */
 package com.mugekural.pollywish;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-/**
- * @author Greg Turnquist
- */
-// tag::code[]
-@Controller
-public class HomeController {
+@Entity
+public class Employee {
 
-	@RequestMapping(value = "/")
-	public String index() {
-		return "index";
-	}
+  private @Id @GeneratedValue Long id;
+  private String firstName, lastName, description;
 
+  private Employee() {}
+
+  public Employee(String firstName, String lastName, String description) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.description = description;
+  }
 }
-// end::code[]
