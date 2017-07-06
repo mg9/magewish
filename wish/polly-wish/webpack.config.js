@@ -1,32 +1,26 @@
+var webpack = require('webpack');
 var path = require('path');
 
-var node_dir = __dirname + '/node_modules';
+//var BUILD_DIR = path.resolve(__dirname, 'src/main/resources/static/built');
+var BUILD_DIR = path.resolve(__dirname, 'src/main/js/client/public');
 
-module.exports = {
-    entry: './src/main/js/src/app.js',
-    devtool: 'sourcemaps',
-    cache: true,
-    debug: true,
-    resolve: {
-        alias: {
-            'stompjs': node_dir + '/stompjs/lib/stomp.js',
-        }
-    },
-    output: {
-        path: __dirname,
-        filename: './src/main/resources/static/built/bundle.js'
-    },
-    module: {
-        loaders: [
-            {
-                test: path.join(__dirname, '.'),
-                exclude: /(node_modules)/,
-                loader: 'babel',
-                query: {
-                    cacheDirectory: true,
-                    presets: ['es2015', 'react']
-                }
-            }
-        ]
-    }
+var APP_DIR = path.resolve(__dirname, 'src/main/js/client/app');
+
+var config = {
+  entry: APP_DIR + '/index.jsx',
+  output: {
+    path: BUILD_DIR,
+    filename: 'bundle.js'
+  },
+  module : {
+    loaders : [
+      {
+        test : /\.jsx?/,
+        include : APP_DIR,
+        loader : 'babel'
+      }
+    ]
+  }
 };
+
+module.exports = config;

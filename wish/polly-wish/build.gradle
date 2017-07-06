@@ -61,7 +61,7 @@ node {
 
 task webpack(type: NodeTask, dependsOn: 'npmInstall') {
     script = project.file('node_modules/.bin/webpack')
-    args = ['--display-error-details']
+    args = ['-p -d --watch']
 }
 
 
