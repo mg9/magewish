@@ -2,3 +2,5 @@ node_modules/
 bin
 /.gradle/
 .DS_Store
+/.project
+.settings/
