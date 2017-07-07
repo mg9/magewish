@@ -70,7 +70,7 @@ task appNpmInstall(type: NpmTask) {
 
 
 task copyDocs(type: Copy, dependsOn: 'appNpmInstall') {
-     from 'src/main/js/public'
+     from 'src/main/js/dist'
      into 'src/main/resources/static'
  }
 
