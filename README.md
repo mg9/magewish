@@ -1,2 +1,2 @@
 # wish
-My own project is under wish directory, polly-aws-demo is a sample amazon project.  
+My own project is under the /wish directory, polly-aws-demo is a sample amazon project.  
