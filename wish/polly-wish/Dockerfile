@@ -1,4 +1,4 @@
-## THIS FILE IS OUTDATED (only works for pure react app) 
+### THIS FILE IS OUTDATED (only works for pure react app) 
 
 FROM node:boron
 
@@ -17,5 +17,4 @@ EXPOSE 3000
 CMD [ "npm", "start" ]
 
 RUN echo 'we are running some # of cool things'
-
 
