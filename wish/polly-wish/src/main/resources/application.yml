@@ -3,7 +3,9 @@ server:
 spring:
   data:
     rest:
-      base-path: /api  
+      base-path: /api 
+  thymeleaf:
+     prefix: classpath:/static/     
 eureka:
   instance:
     preferIpAddress: true
@@ -19,5 +21,9 @@ eureka:
     lease:
       duration: 5      
 
+# spring.thymeleaf.prefix=classpath:/templates/  Prefix that gets prepended to view names when building a URL.
+
       
+      
+       
       

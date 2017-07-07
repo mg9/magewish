@@ -6,7 +6,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <p> Hello My Lovely React!</p>
+        <p> Hello My Lovely React Mugiiş nehaber caniko!</p>
         <AwesomeComponent />
       </div>
     );
