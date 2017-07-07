@@ -8,8 +8,8 @@ Docker, Gradle, Node, Npm, Webpack, Babel
 ./gradlew run
 
 ### For only react part (under src/main/js)
-npm run build
-npm start
+$ npm run build
+$ npm start
 
 
 NOTES: Now, copying of static (bundle.js & index.html) files to the src/main/resources is NOT automatically.
