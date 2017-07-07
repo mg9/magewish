@@ -8,6 +8,7 @@ Docker, Gradle, Node, Npm, Webpack, Babel
 ./gradlew run
 
 ### For only react part (under src/main/js)
+npm run build
 npm start
 
 
