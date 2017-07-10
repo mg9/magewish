@@ -3,9 +3,7 @@ server:
 spring:
   data:
     rest:
-      base-path: /api 
-  thymeleaf:
-     prefix: classpath:/static/     
+      base-path: /api  
 eureka:
   instance:
     preferIpAddress: true

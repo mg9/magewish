@@ -10,17 +10,12 @@ buildscript {
 	}
 }
 
-plugins {
-  id "com.moowork.node" version "1.2.0"
-}
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'application'
 mainClassName = 'com.mugekural.pollywish.PollyWishApplication'
-
-
 
 
 version = '0.0.1-SNAPSHOT'
@@ -55,42 +50,6 @@ dependencies {
 
 }
 
-node {
-    version = '6.11.0'
-    download = true
-}
-
-
-task appNpmInstall(type: NpmTask) {
-    description = "Installs dependencies from package.json"
-	workingDir = file("${project.projectDir}/src/main/js")
-    args = ['install']
-}	
-
-
-
-task copyDocs(type: Copy, dependsOn: 'appNpmInstall') {
-     from 'src/main/js/public'
-     into 'src/main/resources/static'
- }
-
-
-/* NOT WORKING 
-task runWebpack(type: NpmTask) {
-    description = "Runs commands for webpack from package.json"
-	workingDir = file("${project.projectDir}/src/main/js")
-    args = ['start']
-}
-
-
-task copyDocs(type: Copy, dependsOn: 'runWebpack') {
-     from 'src/main/js/public'
-     into 'src/main/resources/static'
- }
-*/
-
-
-processResources.dependsOn 'copyDocs'
 
 dependencyManagement {
 	imports {
