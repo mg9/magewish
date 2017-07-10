@@ -5,9 +5,6 @@ buildscript {
 	repositories {
 		mavenCentral()
 	}
-	dependencies {
-        classpath 'com.bluepapa32:gradle-watch-plugin:0.1.5'
-	}
 }
 
 
@@ -45,7 +42,7 @@ task copyFrontendFiles(dependsOn: 'createReactAppBuild') {
  }
  
  
- allprojects {
+allprojects {
 
    ext {
 		springBootGradleVersion = '1.5.2.RELEASE'
@@ -55,9 +52,8 @@ task copyFrontendFiles(dependsOn: 'createReactAppBuild') {
 	
    group = "com.mugekural"
    version = '0.0.1-SNAPSHOT'
-   
-   
-   }
+      
+}
  
 
  
