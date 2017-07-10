@@ -30,8 +30,7 @@ task createReactAppBuild(type: NpmTask) {
 
 
 task copyFrontendFiles(dependsOn: 'createReactAppBuild') {
-
-   	 copy {
+   	copy {
 	   from 'polly-wish-web/build'
 	   		include('**/*.js')
 	 		include('**/*.css')
@@ -44,6 +43,21 @@ task copyFrontendFiles(dependsOn: 'createReactAppBuild') {
 	   	into 'polly-wish/src/main/resources/templates'
     } 
  }
+ 
+ 
+ allprojects {
+
+   ext {
+		springBootGradleVersion = '1.5.2.RELEASE'
+		springCloudVersion = 'Dalston.SR1'
+		dependencyManagementPluginVersion = '1.0.3.RELEASE'
+   }
+	
+   group = "com.mugekural"
+   version = '0.0.1-SNAPSHOT'
+   
+   
+   }
  
 
  
