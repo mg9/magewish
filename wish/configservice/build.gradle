@@ -8,11 +8,14 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	    classpath('se.transmode.gradle:gradle-docker:1.2')
+		
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'docker'
 apply plugin: 'org.springframework.boot'
 
 version = '0.0.1-SNAPSHOT'
@@ -39,6 +42,32 @@ dependencyManagement {
 	}
 }
 
+task createDockerFile(dependsOn: build){
+	copy {
+      from file('src/main/docker/Dockerfile')
+      into file(relativePath(buildDir)+'/docker')
+      filter{ it.replaceAll('@@VERSION@@', project.version)} 
+      rename { String fileName -> fileName +  '-mg'}
+    }
+    
+}
 
+task buildDocker(type: Docker, dependsOn: createDockerFile) {
+  push = false
+  applicationName = jar.baseName
+  println "App: $applicationName version: ${version}"
+  dockerfile file(relativePath(stageDir)+'/Dockerfile-mg')  
+  doFirst {
+    copy {
+      from jar
+      into stageDir
+    }
+    copy {
+      from file('src/main/docker/run.sh')
+      into stageDir
+    }
+
+  }
+}
 
 

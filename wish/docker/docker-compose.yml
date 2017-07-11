@@ -1,0 +1,17 @@
+version: '2'
+services:
+  polly-wish:
+      hostname: "polly-wish"
+      image: com.mugekural/polly-wish:0.0.1-SNAPSHOT
+      ports:
+        - "9090:9090"
+      links:
+        - "eurekaservice:eurekaserver"
+  eurekaservice:
+      hostname: "eurekaservice"
+      image: com.mugekural/eurekaservice:0.0.1-SNAPSHOT
+      ports:
+        - "8761:8761"
+    
+         
+         
